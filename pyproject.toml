@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "macusb"
+version = "0.1.0"
+description = "Create bootable macOS USB installers for Intel Macs on Linux (fetch from Apple's CDN, build raw GPT/HFS+ images or hybrid ISOs)"
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [{ name = "Mascottz" }]
+keywords = ["macos", "usb", "installer", "hfs+", "gpt", "intel-mac"]
+classifiers = [
+    "Environment :: Console",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Topic :: System :: Installation/Setup",
+]
+
+[project.scripts]
+macusb = "macusb.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+macusb = ["data/*"]
